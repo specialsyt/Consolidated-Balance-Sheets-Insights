@@ -1,0 +1,7 @@
+*.pyc
+processing/sec-edgar-filings/**
+sec-edgar-filings/**
+unittest-sec-filings/*
+**.db
+llama3**
+.DS_Store

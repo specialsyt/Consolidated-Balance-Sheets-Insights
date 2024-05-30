@@ -1,0 +1,19 @@
+name: financial_services_innovation_lab
+channels:
+  - defaults
+  - pytorch
+dependencies:
+  - python=3.12
+  - pytorch=2.2.1
+  - flask
+  - pip
+  - pytest
+  - pip:
+      - sec-edgar-downloader
+      - sec-parser
+      - openai
+variables:
+  COMPANY_NAME: ""
+  COMPANY_EMAIL: ""
+  SEC_DOWNLOAD_PATH: "sec-edgar-filings"
+  OPENAI_API_KEY: ""
