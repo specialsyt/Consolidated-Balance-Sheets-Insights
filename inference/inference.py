@@ -3,9 +3,9 @@ from openai import OpenAI
 from database.database import Database
 client = OpenAI()
 
-def infer(ticker: str, sheets: list[str]) -> str:
+def infer(ticker: str, sheets: list[str], force=False) -> str:
   db = Database.get_instance()
-  if db.inference_is_cached(ticker):
+  if not force and db.inference_is_cached(ticker):
     inference = db.get_inference(ticker)
     return inference
 

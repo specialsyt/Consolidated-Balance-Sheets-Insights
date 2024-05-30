@@ -23,7 +23,16 @@
                     $('#overlay').hide();
                     document.getElementById('inferenceResponseTextarea').value = data;
                 });
+            });
 
+            $('#submitInferenceRefreshRequest').click(function (e) {
+                e.preventDefault();
+                let ticker = document.getElementById('tickerInput').value;
+                $('#overlay').show();
+                $.get(`/filing/${ticker}/infer/refresh`, function (data) {
+                    $('#overlay').hide();
+                    document.getElementById('inferenceResponseTextarea').value = data;
+                });
             });
         });
     </script>
@@ -57,7 +66,14 @@
                         rows="10" disabled></textarea>
                 </div>
 
-                <button id="submitInferenceRequest" class="btn btn-primary">Submit</button>
+                <div class="container">
+                    <div class="row">
+                        <button id="submitInferenceRequest" class="col btn btn-primary">Submit Request</button>
+                        <button id="submitInferenceRefreshRequest" class="col-1 btn btn-danger"><span
+                                class=reload>&#x21bb;</span>
+                        </button>
+                    </div>
+                </div>
             </form>
         </div>
 

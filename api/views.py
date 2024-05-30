@@ -26,3 +26,10 @@ def infer_on_ticker(ticker: str):
     sheets = fetcher.get_consolidated_balance_sheets(ticker)
     inference = infer(ticker, sheets)
     return inference
+
+@app.route('/filing/<string:ticker>/infer/refresh')
+def refresh_infer_on_ticker(ticker: str):
+    fetcher = Fetch10K._instance
+    sheets = fetcher.get_consolidated_balance_sheets(ticker)
+    inference = infer(ticker, sheets, force=True)
+    return inference
