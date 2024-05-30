@@ -28,3 +28,11 @@ This repository contains a project developed for the Financial Services Innovati
 - SQLite is used as a caching layer. Due to the time it takes to do many of these lookups as well as the costs associated with the external LLM API, caching is a necessity for repeated lookups of the same ticker.
 - OpenAI's gpt3.5-turbo model was chosen for its speed, accuracy, and cost optimization. It is also relatively easy to get setup.
 - pytest is used as a robust testing library to make sure as the project grows there are no regressions.
+
+# Future Work
+
+- Inference can be switched to Llama3 with onboard processing on Georgia Tech PACE to cut down on external API costs and utilize an increased context-window.
+- Different prompts can be tested and responses can be measured to possibly improve performance
+- Backend year-matching in the prompt may be incorrect if filings are not continuous (such as if a company goes public-private-public)
+- Different parts of the 10-K report (or different SEC EDGAR reports themselves) can be studied to see whether insights generated on company trajection differ based on types of trends (such as a company operating on a loss however has an increasing valuation)
+- Error handling on the UI can account for lost connections or dropped sockets
