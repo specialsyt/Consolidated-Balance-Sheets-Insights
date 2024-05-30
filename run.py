@@ -16,10 +16,8 @@ SEC_DOWNLOAD_PATH = os.getenv('SEC_DOWNLOAD_PATH') or None
 def main():
     print('Starting application...')
     _ = Database('fsil.db', 'filingsCache')
-    fetcher = Fetch10K(COMPANY_NAME, COMPANY_EMAIL, SEC_DOWNLOAD_PATH)
-    sheets = fetcher.get_consolidated_balance_sheets('AAPL')
-    inference = infer('AAPL', sheets)
-    app.run(debug=True)
+    _ = Fetch10K(COMPANY_NAME, COMPANY_EMAIL, SEC_DOWNLOAD_PATH)
+    app.run(debug=False)
 
 if __name__ == '__main__':
     main()
